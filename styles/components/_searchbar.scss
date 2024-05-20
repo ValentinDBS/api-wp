@@ -1,0 +1,54 @@
+@use '../abstracts' as *;
+
+.searchbar-form {
+    position: relative;
+    width: 300px;
+    background-color: $secondary-clr;    
+
+    .searchbar {
+        position: relative;
+        
+        input {
+            width: 100%;
+            padding: 0.5rem 0.8rem;
+            border-radius: 99px;
+            border:2px solid $main-clr;
+            outline: none;
+            font-size: 1rem;
+            background-color: $secondary-clr;
+        }
+
+        button {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: .5;
+            background-color: $secondary-clr;
+            border: none;
+        }
+    }
+
+    .result-search {
+        position: absolute;
+        top: 3rem;
+        left: 0rem;
+        padding: 0.6rem;
+        background: $secondary-clr;
+        width: 90%;
+        box-shadow: $box-shadow-1;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        span a {
+            font-size: 1rem;
+            color: $main-clr;
+            // border-bottom: 1px solid $main-clr;
+
+            &:hover {
+                color: $accent-clr;
+            }
+        } 
+    }
+}

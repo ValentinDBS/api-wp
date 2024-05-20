@@ -1,0 +1,54 @@
+@use '../abstracts/' as *;
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: $fs-text;
+  font-weight: $fw-text;
+  color: $text-clr;
+  font-family: "Poppins", sans-serif;
+  background-color: $bg-clr;
+}
+
+h1, h2, h3, h4, h5, h6, span {
+  font-size: $fs-title;
+  color: $title-clr;
+  font-family: "Archivo Black", sans-serif;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  // font-size: $fs-400;
+}
+
+a:is(:hover, :focus) {
+  color: $link-color-hover;
+}
+
