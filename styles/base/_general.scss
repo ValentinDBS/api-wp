@@ -49,6 +49,13 @@ a {
 }
 
 a:is(:hover, :focus) {
-  color: $link-color-hover;
+  color: $link-color-hover !important;
 }
 
+.btn-link {
+  padding: 1rem 3rem;
+  border-radius: $border-radius;
+  font-weight: $fw-text-bold;
+  background-color: $secondary-clr;
+  color: $main-clr;
+}
