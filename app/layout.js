@@ -1,5 +1,5 @@
 import "../styles/main.css";
-import Header from "@/components/Header";
+import Header from "../components/Header/Header"
 
 export const metadata = {
   title: "WP-API",

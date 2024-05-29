@@ -1,11 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#hero .hero-container, header, header nav ul, header nav ul .left-nav {
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: "valorant";
+  src: url("/app/static-font/Valorant_Font.ttf");
+}
+section.filter-agent .filter-container, section.select-agent div.select-agent-container .agent-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#hero .hero-container, section.filter-agent .filter-container .filter-role ul, header, header nav ul, header nav ul .left-nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@font-face {
+  font-family: "valorant";
+  src: url("/app/static-font/Valorant_Font.ttf");
+}
 *,
 *::before,
 *::after {
@@ -23,7 +39,7 @@ html {
 }
 
 body {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 400;
   color: #ECE7E1;
   font-family: "Poppins", sans-serif;
@@ -116,7 +132,13 @@ a:is(:hover, :focus) {
 
 header {
   position: fixed;
+  z-index: 99;
   width: 100%;
+}
+@media (max-width: 768px) {
+  header {
+    display: none;
+  }
 }
 header nav {
   margin-top: 2rem;
@@ -139,8 +161,115 @@ header nav ul .left-nav li > a:first-child {
   align-items: center;
 }
 
+.btn-menu {
+  position: fixed;
+  right: 0px;
+  margin: 20px;
+  z-index: 999;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ECE7E1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .btn-menu {
+    display: none;
+  }
+}
+
+.burger {
+  width: 100%;
+}
+.burger::after, .burger::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 40%;
+  margin: auto;
+  background-color: #101823;
+  position: relative;
+  transition: transform 0.3s;
+}
+.burger::after {
+  top: -5px;
+}
+.burger::before {
+  top: 5px;
+}
+
+.burgerActive::after {
+  transform: rotate(45deg);
+  top: -1px;
+}
+.burgerActive::before {
+  transform: rotate(-45deg);
+  top: 0px;
+}
+
+.menu-sidebar {
+  height: 100vh;
+  background-color: #ECE7E1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99;
+  color: #101823;
+}
+.menu-sidebar .body-sidebar {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-sidebar .body-sidebar .nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  font-size: 56px;
+  gap: 12px;
+  margin-top: 80px;
+}
+.menu-sidebar .body-sidebar .nav-sidebar .header-sidebar {
+  color: rgb(153, 153, 153);
+  border-bottom: 1px solid rgb(153, 153, 153);
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-bottom: 40px;
+}
+.menu-sidebar .body-sidebar .nav-sidebar a {
+  text-decoration: none;
+  color: #101823;
+  font-weight: 300;
+}
+.menu-sidebar .footer-sidebar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+  gap: 40px;
+}
+.menu-sidebar .footer-sidebar a {
+  color: #101823;
+}
+
+svg.svgCurve {
+  position: absolute;
+  top: 0;
+  left: -99px;
+  width: 100px;
+  height: 100%;
+  fill: #ECE7E1;
+  stroke: none;
+}
+
 #hero {
   height: 100svh;
+  position: relative;
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -149,10 +278,92 @@ header nav ul .left-nav li > a:first-child {
   flex-direction: column;
   gap: 5rem;
 }
+#hero .hero-container #valorant {
+  font-size: clamp(4rem, 10vw, 8rem);
+}
 #hero .bg-hero {
   z-index: -1;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: top;
      object-position: top;
+}
+#hero .mouse {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#hero .mouse-icon {
+  width: 25px;
+  height: 45px;
+  border: 2px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+#hero .mouse-wheel {
+  height: 6px;
+  margin: 2px auto 0;
+  display: block;
+  width: 3px;
+  background-color: white;
+  border-radius: 50%;
+  animation: 1.6s ease infinite wheel-up-down;
+}
+@keyframes wheel-up-down {
+  0% {
+    margin-top: 2px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: 20px;
+    opacity: 0;
+  }
+}
+
+section.filter-agent .filter-container {
+  padding: 1rem 4rem;
+  border-top: 1px solid #ECE7E1;
+  border-bottom: 1px solid #ECE7E1;
+}
+section.filter-agent .filter-container .filter-role ul {
+  gap: 2rem;
+}
+
+@media (min-width: 1280px) {
+  section.select-agent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+section.select-agent div.select-agent-container {
+  position: relative;
+  padding: 2rem 4rem;
+  border-right: 1px solid #ECE7E1;
+}
+section.select-agent div.select-agent-container:before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background: #ECE7E1;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+section.select-agent div.select-agent-container .agent-number {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+}
+section.select-agent div.select-agent-container .agent-info .agent-name {
+  text-transform: uppercase;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(3rem, 3.5vw, 5rem);
+}
+section.select-agent div.select-agent-container .agent-info .agent-role {
+  margin-top: 2.8vw;
+  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */

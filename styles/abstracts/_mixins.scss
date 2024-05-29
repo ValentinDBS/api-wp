@@ -1,13 +1,80 @@
-// @mixin font-title-regular {
-//     font-size: $fs-title;
-//     font-weight: $fw-title;
-//     color: $title-clr;
-//     font-family: "Archivo Black", sans-serif;
-// }
+$breakpoint-xs: 475px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
 
-// @mixin font-text-regular {
-//     font-size: $fs-text;
-//     font-weight: $fw-text;
-//     color: $text-clr;
-//     font-family: "Poppins", sans-serif;
-// }
+@mixin xs-min-screen {
+    @media (min-width: $breakpoint-xs) {
+        @content;
+    }
+}
+  
+@mixin sm-min-screen {
+    @media (min-width: $breakpoint-sm) {
+        @content;
+    }
+}
+  
+@mixin md-min-screen {
+    @media (min-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin lg-min-screen {
+    @media (min-width: $breakpoint-lg) {
+        @content;
+    }
+}
+
+@mixin xl-min-screen {
+    @media (min-width: $breakpoint-xl) {
+        @content;
+    }
+}
+
+@mixin xxl-min-screen {
+    @media (min-width: $breakpoint-xxl) {
+        @content;
+    }
+}
+
+// Max-width
+
+@mixin xs-max-screen {
+    @media (max-width: $breakpoint-xs) {
+        @content;
+    }
+}
+  
+@mixin sm-max-screen {
+    @media (max-width: $breakpoint-sm) {
+        @content;
+    }
+}
+  
+@mixin md-max-screen {
+    @media (max-width: $breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin lg-max-screen {
+    @media (max-width: $breakpoint-lg) {
+        @content;
+    }
+}
+
+@mixin xl-max-screen {
+    @media (max-width: $breakpoint-xl) {
+        @content;
+    }
+}
+
+@mixin xxl-max-screen {
+    @media (max-width: $breakpoint-xxl) {
+        @content;
+    }
+}

@@ -9,7 +9,8 @@ export async function GET() {
     const data = await response.json();
     const agents = data.data.map(agent => ({
       displayName: agent.displayName,
-      uuid: agent.uuid
+      uuid: agent.uuid,
+      role : agent.role
     }));
     return NextResponse.json(agents);
   } catch (error) {
