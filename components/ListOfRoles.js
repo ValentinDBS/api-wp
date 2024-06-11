@@ -1,44 +1,42 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 
-const ListOfRoles = () => {
+const ListOfRoles = ({ onRoleSelect }) => {
     const [roles, setRoles] = useState([]);
 
     useEffect(() => {
         async function fetchRoles() {
-          try {
-            const response = await fetch('/api/agents');
-            if (!response.ok) {
-              throw new Error('Failed to fetch agents');
-            }
-            const data = await response.json();
-            
-            // Extraire les noms des rôles à partir des agents
-            const roles = data
-              .filter(agent => agent.role && agent.role.displayName) // Filtrer les agents ayant un rôle
-              .map(agent => agent.role.displayName); // Extraire les noms des rôles
-            
-            // Supprimer les doublons
-            console.log('Roles:', roles);
-            const uniqueRoles = [...new Set(roles)];
+            try {
+                const response = await fetch('/api/agents');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch agents');
+                }
+                const data = await response.json();
 
-            setRoles(uniqueRoles);
-          } catch (error) {
-            console.error("Failed to fetch agents: ", error);
-          }
+                const roles = data
+                    .filter(agent => agent.role)
+                    .map(agent => agent.role);
+
+                const uniqueRoles = [...new Set(roles)];
+
+                setRoles(uniqueRoles);
+            } catch (error) {
+                console.error("Failed to fetch agents: ", error);
+            }
         }
-    
+
         fetchRoles();
     }, []);
 
     return (
-        <ul>
+        <select onChange={(e) => onRoleSelect(e.target.value)}>
+            <option value="">All</option>
             {roles.map((role) => (
-            <li key={role}>{role}</li>
+                <option key={role} value={role}>{role}</option>
             ))}
-        </ul>
-    )
+        </select>
+    );
 }
 
 export default ListOfRoles;

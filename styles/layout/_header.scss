@@ -22,7 +22,7 @@ header {
 
         ul {
             @extend %flexCenter;
-            gap: 5rem;
+            gap: 8rem;
 
             .left-nav {
                 @extend %flexCenter;
@@ -168,3 +168,4 @@ svg.svgCurve{
     fill: $secondary-clr;
     stroke: none;
 }
+

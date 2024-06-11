@@ -28,13 +28,8 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/#agents">
                   Agents
-                </Link>
-              </li>
-              <li>
-                <Link href="/">
-                  Rôles <IoMdArrowDropdown />
                 </Link>
               </li>
             </div>
