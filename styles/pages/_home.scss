@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
+    background-image: url("/images/valorant-hero.webp");
+    background-size: cover;
 
     .hero-container {
         @extend %flexCenter;
@@ -115,12 +117,11 @@ section.select-agent {
     
 
     div.select-agent-container {
-        // display: flex;
-        // flex-direction: column;
-        // width: 100%;
         position: relative;
         padding: 2rem 4rem;
         border-right: 1px solid $secondary-clr;
+        cursor: pointer;
+        transition: all 0.2s;
     
         &:before {
             content: '';
@@ -143,12 +144,27 @@ section.select-agent {
                 text-transform: uppercase;
                 font-family: "Archivo Black", sans-serif;
                 font-size: clamp(3rem, 3.5vw, 5rem);
+                transition: all 0.4s;
             }
 
             .agent-role {
                 margin-top: 2.8vw;
                 font-weight: $fw-text-bold;
+                transition: all 0.4s;
             }
         }
+
+        &:hover .agent-role{
+            transform: translateX(-10px);
+        }
+
+        &:hover .agent-name{
+            transform: translateX(10px);
+        }
+
+        &:hover .agent-number {
+            transform: translateX(10px);
+        }
+
     }
 }

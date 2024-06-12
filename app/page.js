@@ -4,7 +4,7 @@ import Image from 'next/image';
 import localFont from 'next/font/local';
 import { useState } from 'react';
 import ListOfRoles from '@/components/ListOfRoles';
-import Agent from '@/components/Agent';
+import Agent from '@/app/agents/page';
 import { animateTitle } from './utilities/animation';
 
 // Font files can be colocated inside of `pages`

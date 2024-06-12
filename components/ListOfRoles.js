@@ -30,12 +30,16 @@ const ListOfRoles = ({ onRoleSelect }) => {
     }, []);
 
     return (
-        <select onChange={(e) => onRoleSelect(e.target.value)}>
-            <option value="">All</option>
+        <ul>
+            <li>
+                <a href="#agents" onClick={() => onRoleSelect('')}>All</a>
+            </li>
             {roles.map((role) => (
-                <option key={role} value={role}>{role}</option>
+                <li key={role}>
+                    <a href="#agents" onClick={() => onRoleSelect(role)}>{role}</a>
+                </li>
             ))}
-        </select>
+        </ul>
     );
 }
 

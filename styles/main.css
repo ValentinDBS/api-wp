@@ -130,6 +130,57 @@ a:is(:hover, :focus) {
   color: #FF4654;
 }
 
+.modalContainer {
+  height: 350px;
+  width: 400px;
+  position: absolute;
+  background-color: white;
+  overflow: hidden;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalSlider {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal img {
+  height: auto;
+}
+
+.cursor, .cursorLabel {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #455CE9;
+  color: white;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 300;
+  pointer-events: none;
+}
+
+.cursorLabel {
+  background-color: transparent;
+}
+
 header {
   position: fixed;
   z-index: 99;
@@ -273,6 +324,8 @@ svg.svgCurve {
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("/images/valorant-hero.webp");
+  background-size: cover;
 }
 #hero .hero-container {
   flex-direction: column;
@@ -345,6 +398,8 @@ section.select-agent div.select-agent-container {
   position: relative;
   padding: 2rem 4rem;
   border-right: 1px solid #ECE7E1;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 section.select-agent div.select-agent-container:before {
   content: "";
@@ -362,8 +417,19 @@ section.select-agent div.select-agent-container .agent-info .agent-name {
   text-transform: uppercase;
   font-family: "Archivo Black", sans-serif;
   font-size: clamp(3rem, 3.5vw, 5rem);
+  transition: all 0.4s;
 }
 section.select-agent div.select-agent-container .agent-info .agent-role {
   margin-top: 2.8vw;
   font-weight: 700;
+  transition: all 0.4s;
+}
+section.select-agent div.select-agent-container:hover .agent-role {
+  transform: translateX(-10px);
+}
+section.select-agent div.select-agent-container:hover .agent-name {
+  transform: translateX(10px);
+}
+section.select-agent div.select-agent-container:hover .agent-number {
+  transform: translateX(10px);
 }/*# sourceMappingURL=main.css.map */

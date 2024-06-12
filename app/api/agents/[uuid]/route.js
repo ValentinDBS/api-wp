@@ -1,13 +1,16 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request, { params }) {
+  const { uuid } = params;
+
   try {
-    const response = await fetch('https://web24.mmi-stdie.fr/valentin/wp-json/wp/v2/agent');
+    const response = await fetch(`https://web24.mmi-stdie.fr/valentin/wp-json/wp/v2/agent/${uuid}`);
     if (!response.ok) {
-      throw new Error('Failed to fetch agents');
+      throw new Error('Failed to fetch agent');
     }
-    const data = await response.json();
-    const agents = data.map(agent => ({
+    const agent = await response.json();
+
+    const formattedAgent = {
       displayName: agent.post_title,
       uuid: agent.ID,
       icon: agent.featured_image_url,
@@ -36,9 +39,10 @@ export async function GET() {
         } : null
       },
       fullPortrait: agent.acf.full_portrait
-    }));
-    return NextResponse.json(agents);
+    };
+
+    return NextResponse.json(formattedAgent);
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch agents' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch agent' }, { status: 500 });
   }
 }
