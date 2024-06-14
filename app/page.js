@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import Lenis from 'lenis'
 import localFont from 'next/font/local';
 import { useState } from 'react';
 import ListOfRoles from '@/components/ListOfRoles';
-import Agent from '@/app/agents/page';
 import { animateTitle } from './utilities/animation';
+import Agent from '@/components/Agent';
 
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: './static-font/Valorant_Font.ttf' });
@@ -13,6 +14,19 @@ const myFont = localFont({ src: './static-font/Valorant_Font.ttf' });
 export default function Home() {
     const [selectedRole, setSelectedRole] = useState('');
 
+    const lenis = new Lenis()
+
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+    
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    
+    requestAnimationFrame(raf)
+    
     animateTitle();
 
     return (
@@ -35,14 +49,14 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <section className='filter-agent'>
+            <div className='filter-agent'>
                 <div className="filter-container">
                     <p>Sélectionne un agent</p>
                     <div className="filter-role">
                         <ListOfRoles onRoleSelect={setSelectedRole} />
                     </div>
                 </div>
-            </section>
+            </div>
             <section className='select-agent' id='agents'>
                 <Agent selectedRole={selectedRole} />
             </section>

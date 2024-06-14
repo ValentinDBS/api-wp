@@ -1,15 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    async rewrites() {
-      return [
-        // Rewrite pour les détails de l'agent
-        {
-          source: '/agents/:uuid',
-          destination: '/agents/[uuid]',
-        },
-      ];
-    },
-  };
-  
-  export default nextConfig;
-  
+  images: {
+    remotePatterns: [
+      { 
+        hostname: 'web24.mmi-stdie.fr', 
+        // Vous pouvez également spécifier d'autres paramètres comme le protocole (https ou http) si nécessaire
+        // protocol: 'https',
+      },
+    ],
+  },
+};
+
+export default nextConfig;

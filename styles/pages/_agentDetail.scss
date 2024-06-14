@@ -1,0 +1,124 @@
+@use '../abstracts/' as *;
+
+#detail-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: calc(100vh + 110px);
+    padding-top: 7rem;
+
+    @include xl-max-screen {
+        padding-top: 9rem;
+    }
+
+    .wrap-center {
+
+        @extend %flexCenter;
+        // padding: 0rem 5rem;
+
+        @include xl-max-screen {
+            flex-direction: column;
+        }
+
+        
+
+        .fullportrait-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+
+            img {
+                @include xl-max-screen {
+                    height: 100vh !important;
+                    opacity: 0.3;
+                    z-index: -1;
+                }
+                
+            }
+        }
+
+        .info-container {
+            @extend %flexColumn;
+            width: 80%;
+            padding: 0rem 5rem;
+            gap: 2rem;
+
+            @include xl-max-screen {
+                width: 100%;
+            }
+
+            @include md-max-screen {
+                padding: 0rem 4rem;
+            }
+    
+            h1 {
+                font-size: clamp(3rem, 4vw, 4vw);
+                text-transform: uppercase;
+            }
+    
+            span {
+                font-size: clamp(1rem, 1vw, 1.25rem);
+                text-transform: uppercase;
+            }
+            
+            h2 {
+                font-size: clamp(2rem, 2vw, 3vw);
+                text-transform: uppercase;
+            }
+    
+            .line-separation {
+                position:relative;
+                height: 10px;
+                width: 100%;
+        
+                &::after {
+                    position: absolute;
+                    bottom: 0px;
+                    content: " ";
+                    width:100%;
+                    background-color: $secondary-clr;
+                    height: 1px;
+                    left:0px;
+                }
+            }
+
+            h3 {
+                font-size: clamp(2rem, 2vw, 3vw);
+                text-transform: uppercase;
+            }
+
+            .skills-container {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                width: 100%;
+
+                .skills-choice {
+                    cursor: pointer;
+                    opacity: 0.5;
+                    border: 1px solid $secondary-clr;
+                    padding: 0.5rem;
+                }
+            }
+
+            .skills-description {
+
+                .skill-name {
+                    text-transform: uppercase;
+                    font-family: $ff-title;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+}
+
+#more {
+
+    h3 {
+        text-align: center;
+        font-size: clamp(2rem, 3vw, 3vw);
+        margin: 10rem 0rem;
+    }
+}

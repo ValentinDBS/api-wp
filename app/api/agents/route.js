@@ -22,17 +22,17 @@ export async function GET() {
         e: agent.acf.competences.e ? {
           nom: agent.acf.competences.e.nom_e,
           description: agent.acf.competences.e.description_e,
-          icone: agent.acf.competences.e.icone_e.ID
+          icone: agent.acf.competences.e.icone_e.url
         } : null,
         c: agent.acf.competences.c ? {
           nom: agent.acf.competences.c.nom_c,
           description: agent.acf.competences.c.description_c,
-          icone: agent.acf.competences.c.icone_c.ID
+          icone: agent.acf.competences.c.icone_c.url
         } : null,
         x: agent.acf.competences.x ? {
           nom: agent.acf.competences.x.nom_x,
           description: agent.acf.competences.x.description_x,
-          icone: agent.acf.competences.x.icone_x.ID
+          icone: agent.acf.competences.x.icone_x.url
         } : null
       },
       fullPortrait: agent.acf.full_portrait

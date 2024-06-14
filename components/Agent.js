@@ -2,13 +2,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Agent = ({ selectedRole }) => {
     const [agents, setAgents] = useState([]);
     const [filteredAgents, setFilteredAgents] = useState([]);
-    const router = useRouter();
 
     useEffect(() => {
         async function fetchAgents() {
@@ -36,15 +34,10 @@ const Agent = ({ selectedRole }) => {
         }
     }, [selectedRole, agents]);
 
-    // const handleAgentClick = (agentId) => {
-    //     router.push(`/agents/${agentId}`); // Rediriger vers la page DetailAgent correspondant à l'agent sélectionné
-    // onClick={() => handleAgentClick(agent.uuid)}
-    // };
-
     return (
         <>
             {filteredAgents.map((agent, index) => (
-                <Link key={agent.uuid} className="select-agent-container" id={`${agent.uuid}`} href={`/agents/${agent.uuid}`}>
+                <Link key={agent.uuid} className="select-agent-container" id={`${agent.uuid}`} href={`/agentDetail/${agent.uuid}`} agent={agent}>
                     <span className="agent-number">
                         {String(index + 1).padStart(2, '0')}.
                     </span>
