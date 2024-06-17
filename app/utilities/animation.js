@@ -3,21 +3,18 @@ import { useGSAP } from '@gsap/react';
 
 
 
-export const animateTitle = () => {
+export const animateAccueil = () => {
 
     useGSAP(() => {
-        const tl = gsap.timeline()
+        const tl = gsap.timeline({ defaults: { duration: 1, ease: "power1" } })
     
-        gsap.from(".header-container > header", {
-            duration: 1.1,
-            y: -200,
+        tl.from(".header-container > header", {
+            yPercent: -200,
         });
-        // gsap.to("#valorant", {
-        //     y: 0,
-        //     opacity: 1,
-        //     ease: "circ",
-        //     duration: 1.5,
-        // });
+
+        tl.from(".hero-container > span", {
+            yPercent: 100,
+            opacity: 0,
+        });
     });
-    
 }

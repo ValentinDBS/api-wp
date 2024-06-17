@@ -5,8 +5,8 @@ import Lenis from 'lenis'
 import localFont from 'next/font/local';
 import { useState } from 'react';
 import ListOfRoles from '@/components/ListOfRoles';
-import { animateTitle } from './utilities/animation';
 import Agent from '@/components/Agent';
+import { animateAccueil } from './utilities/animation';
 
 // Font files can be colocated inside of `pages`
 const myFont = localFont({ src: './static-font/Valorant_Font.ttf' });
@@ -27,7 +27,7 @@ export default function Home() {
     
     requestAnimationFrame(raf)
     
-    animateTitle();
+    animateAccueil();
 
     return (
         <>

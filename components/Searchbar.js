@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -23,9 +24,17 @@ const Searchbar = () => {
   
       fetchAgents();
     }, []);
-  
+
+    const handleSelectAgent = () => {
+      setActiveSearch([]);
+      setSearchValue(""); // Réinitialiser le contenu de la barre de recherche
+    }
+    
+    const [searchValue, setSearchValue] = useState(""); // Ajouter un état pour le contenu de la barre de recherche
+    
     const handleSearch = (e) => {
       const searchValue = e.target.value.toLowerCase();
+      setSearchValue(searchValue); // Mettre à jour l'état du contenu de la barre de recherche
       if (searchValue === "") {
         setActiveSearch([]);
         return;
@@ -39,7 +48,7 @@ const Searchbar = () => {
   return (
     <form className='searchbar-form'>
       <div className='searchbar'>
-        <input placeholder="Rechercher un agent" onChange={handleSearch} />
+        <input placeholder="Rechercher un agent" onChange={handleSearch} value={searchValue}/>
         <button type="button">
           <AiOutlineSearch />
         </button>
@@ -47,8 +56,8 @@ const Searchbar = () => {
       {activeSearch.length > 0 && (
         <div className='result-search'>
           {activeSearch.map(agent => (
-            <span key={agent.uuid}>
-              <a href={`/${agent.uuid}`}>{agent.displayName}</a>
+            <span key={agent.uuid} onClick={handleSelectAgent}>
+              <Link href={`/agentDetail/${agent.uuid}`}>{agent.displayName}</Link>
             </span>
           ))}
         </div>

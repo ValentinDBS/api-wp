@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Agent from '@/components/Agent';
 import ListOfRoles from '@/components/ListOfRoles';
+import { animateAccueil } from '@/app/utilities/animation';
 
 const Page = () => {
   const [agents, setAgents] = useState([]);
@@ -49,6 +50,8 @@ const Page = () => {
   const handleCompetenceClick = (competence) => {
     setSelectedCompetence(competence);
   };
+
+  animateAccueil();
 
   return (
     <>
