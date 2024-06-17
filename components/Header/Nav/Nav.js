@@ -63,9 +63,9 @@ const Nav = ({ setIsActive }) => {
             </div>
 
             <div className="footer-sidebar">
-                <a>Awwwards</a>
+                <a>Twitter</a>
                 <a>Instagram</a>
-                <a>Dribble</a>
+                <a>Github</a>
                 <a>LinkedIn</a>
             </div>
         </div>
