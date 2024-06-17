@@ -119,6 +119,10 @@ header {
         flex-direction: column;
         justify-content: space-between;
 
+        @include xs-max-screen  {
+            padding: 50px 10px;
+        }
+
         .nav-sidebar{
             display: flex;
             flex-direction: column;

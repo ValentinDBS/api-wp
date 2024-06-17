@@ -10,10 +10,94 @@ div.filter-agent {
         border-bottom: 1px solid $secondary-clr;
 
         .filter-role {
-            ul {
-                @extend %flexCenter;
-                gap: 2rem;
+            .list-role-container {
+                .menuToggle {
+                    display: none;              
+                }
+
+                ul {
+                    @extend %flexCenter;
+                    gap: 2rem;
+                }
             }
+
+
+            @include lg-max-screen {
+                .list-role-container {
+                    position: relative;
+
+                    .menuToggle {
+                        display: block;
+                        border: 1px solid $secondary-clr;
+                        cursor: pointer;
+                        padding: 0.5rem 2rem;
+                        border-radius: 5px;
+                        background-color: $secondary-clr;
+                        color: $main-clr                
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 1rem;
+                        position: absolute;
+                        top: 80%;
+                        width: 100%;
+                        border-radius: 5px;
+                        padding: 1rem;
+                        z-index: 999;
+                        background-color: $secondary-clr;
+                        opacity: 0;
+                        transition: all 0.4s;
+                        
+                        li > a {
+                            color: $main-clr;
+                        }
+                    }
+                }
+
+                .list-role-container.active {
+                    position: relative;
+
+                    .menuToggle {
+                        display: block;
+                        border: 1px solid $secondary-clr;
+                        cursor: pointer;
+                        padding: 0.5rem 2rem;
+                        border-radius: 5px;
+                        background-color: $secondary-clr;
+                        color: $main-clr                
+                    }
+
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 1rem;
+                        position: absolute;
+                        top: 80%;
+                        width: fit-content;
+                        border-radius: 5px;
+                        padding: 1rem;
+                        z-index: 999;
+                        background-color: $secondary-clr;
+                        opacity: 1;
+                        
+                        li > a {
+                            color: $main-clr;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include sm-max-screen {
+            padding: 1rem 2rem;
+        }
+
+        @include xs-max-screen {
+            padding: 1rem;
         }
     }
 }
@@ -57,7 +141,7 @@ div.filter-agent {
             .agent-name {
                 text-transform: uppercase;
                 font-family: "Archivo Black", sans-serif;
-                font-size: clamp(2.5rem, 5vw, 5rem);
+                font-size: clamp(1.75rem, 5vw, 5rem);
                 transition: all 0.4s;
             }
 
@@ -66,6 +150,10 @@ div.filter-agent {
                 font-weight: $fw-text-bold;
                 transition: all 0.4s;
                 transform: translateY(10px);
+
+                @include xs-max-screen {
+                    margin-top: -2vw;
+                }
             }
         }
 
@@ -88,6 +176,10 @@ div.filter-agent {
 
         @include sm-max-screen {
             padding: 2rem;
+        }
+
+        @include xs-max-screen {
+            padding: 2rem 1rem;
         }
     }
 }

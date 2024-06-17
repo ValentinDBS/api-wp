@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 
 import { slide, scale } from '../Anim/Anim';
 
-const Linksidebar = ({data, isActive, setSelectedIndicator}) => {
+const Linksidebar = ({data, isActive, setSelectedIndicator, handleLinkClick }) => {
     const { title, href, index} = data;
 
-  
+    const handleClick = () => {
+      handleLinkClick(); // Appeler la fonction pour fermer le menu mobile
+    };
 
     return (
 
@@ -26,8 +28,8 @@ const Linksidebar = ({data, isActive, setSelectedIndicator}) => {
           className="indicator-sidebar">
         </motion.div>
 
-        <Link href={href}>{title}</Link>
-
+        <Link href={href} onClick={handleClick}>{title}</Link>
+        
       </motion.div>
 
     )

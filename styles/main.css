@@ -12,7 +12,7 @@ div.filter-agent .filter-container, .select-agent .select-agent-container .agent
   align-items: center;
 }
 
-#detail-container .wrap-center, #hero .hero-container, div.filter-agent .filter-container .filter-role ul, header, header nav ul, header nav ul .left-nav {
+#detail-container .wrap-center, #hero .hero-container, div.filter-agent .filter-container .filter-role .list-role-container ul, header, header nav ul, header nav ul .left-nav {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,7 +211,7 @@ header {
   z-index: 99;
   width: 100%;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   header {
     display: none;
   }
@@ -303,6 +303,11 @@ header nav ul .left-nav li > a:first-child {
   flex-direction: column;
   justify-content: space-between;
 }
+@media (max-width: 475px) {
+  .menu-sidebar .body-sidebar {
+    padding: 50px 10px;
+  }
+}
 .menu-sidebar .body-sidebar .nav-sidebar {
   display: flex;
   flex-direction: column;
@@ -348,8 +353,83 @@ div.filter-agent .filter-container {
   border-top: 1px solid #ECE7E1;
   border-bottom: 1px solid #ECE7E1;
 }
-div.filter-agent .filter-container .filter-role ul {
+div.filter-agent .filter-container .filter-role .list-role-container .menuToggle {
+  display: none;
+}
+div.filter-agent .filter-container .filter-role .list-role-container ul {
   gap: 2rem;
+}
+@media (max-width: 1024px) {
+  div.filter-agent .filter-container .filter-role .list-role-container {
+    position: relative;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container .menuToggle {
+    display: block;
+    border: 1px solid #ECE7E1;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    background-color: #ECE7E1;
+    color: #101823;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    border-radius: 5px;
+    padding: 1rem;
+    z-index: 999;
+    background-color: #ECE7E1;
+    opacity: 0;
+    transition: all 0.4s;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container ul li > a {
+    color: #101823;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container.active {
+    position: relative;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container.active .menuToggle {
+    display: block;
+    border: 1px solid #ECE7E1;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    background-color: #ECE7E1;
+    color: #101823;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container.active ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    position: absolute;
+    top: 80%;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 1rem;
+    z-index: 999;
+    background-color: #ECE7E1;
+    opacity: 1;
+  }
+  div.filter-agent .filter-container .filter-role .list-role-container.active ul li > a {
+    color: #101823;
+  }
+}
+@media (max-width: 640px) {
+  div.filter-agent .filter-container {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 475px) {
+  div.filter-agent .filter-container {
+    padding: 1rem;
+  }
 }
 
 .select-agent {
@@ -386,13 +466,18 @@ div.filter-agent .filter-container .filter-role ul {
 .select-agent .select-agent-container .agent-info .agent-name {
   text-transform: uppercase;
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(1.75rem, 5vw, 5rem);
   transition: all 0.4s;
 }
 .select-agent .select-agent-container .agent-info .agent-role {
   font-weight: 700;
   transition: all 0.4s;
   transform: translateY(10px);
+}
+@media (max-width: 475px) {
+  .select-agent .select-agent-container .agent-info .agent-role {
+    margin-top: -2vw;
+  }
 }
 .select-agent .select-agent-container:hover .agent-role {
   transform: translate(-10px, 10px);
@@ -413,6 +498,11 @@ div.filter-agent .filter-container .filter-role ul {
     padding: 2rem;
   }
 }
+@media (max-width: 475px) {
+  .select-agent .select-agent-container {
+    padding: 2rem 1rem;
+  }
+}
 
 #hero {
   height: 100svh;
@@ -426,6 +516,9 @@ div.filter-agent .filter-container .filter-role ul {
 #hero .hero-container {
   flex-direction: column;
   gap: 5rem;
+}
+#hero .hero-container p {
+  text-align: center;
 }
 #hero .hero-container #valorant {
   font-size: clamp(4rem, 10vw, 8rem);
@@ -479,8 +572,7 @@ div.filter-agent .filter-container .filter-role ul {
   position: relative;
   display: flex;
   justify-content: center;
-  height: calc(100vh + 110px);
-  padding-top: 7rem;
+  padding-top: 9rem;
 }
 @media (max-width: 1280px) {
   #detail-container {
@@ -514,7 +606,7 @@ div.filter-agent .filter-container .filter-role ul {
     width: 100%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   #detail-container .wrap-center .info-container {
     padding: 0rem 4rem;
   }
@@ -558,7 +650,6 @@ div.filter-agent .filter-container .filter-role ul {
 }
 #detail-container .wrap-center .info-container .skills-container .skills-choice {
   cursor: pointer;
-  opacity: 0.5;
   border: 1px solid #ECE7E1;
   padding: 0.5rem;
 }
@@ -570,6 +661,6 @@ div.filter-agent .filter-container .filter-role ul {
 
 #more h3 {
   text-align: center;
-  font-size: clamp(2rem, 3vw, 3vw);
+  font-size: clamp(1.5rem, 3.5vw, 4vw);
   margin: 10rem 0rem;
 }/*# sourceMappingURL=main.css.map */

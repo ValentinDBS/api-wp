@@ -12,7 +12,6 @@ import Curve from '../Curve/Curve';
 
 
 const navItems = [
-
   {
     title: "Accueil",
     href: "/",
@@ -21,18 +20,16 @@ const navItems = [
     title: "Agents",
     href: "/#agents",
   },
-  {
-    title: "Rôles",
-    href: "/about",
-  },
 
 ]
-const Nav = () => {
+const Nav = ({ setIsActive }) => {
 
     const pathname = usePathname();
 
     const [selectedIndicator, setSelectedIndicator] = useState(pathname);
-
+    const handleLinkClick = () => {
+      setIsActive(false); // Ferme le menu mobile après avoir cliqué sur un lien
+    }
   return (
     <motion.div 
       variants={menuSlide} 
@@ -55,7 +52,8 @@ const Nav = () => {
                         key={index} 
                         data={{...data, index}} 
                         isActive={selectedIndicator == data.href} 
-                        setSelectedIndicator={setSelectedIndicator}>
+                        setSelectedIndicator={setSelectedIndicator}
+                        handleLinkClick={handleLinkClick}>
                         </Link>
 
                       })

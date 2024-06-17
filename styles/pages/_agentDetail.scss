@@ -4,8 +4,7 @@
     position: relative;
     display: flex;
     justify-content: center;
-    height: calc(100vh + 110px);
-    padding-top: 7rem;
+    padding-top: 9rem;
 
     @include xl-max-screen {
         padding-top: 9rem;
@@ -96,7 +95,6 @@
 
                 .skills-choice {
                     cursor: pointer;
-                    opacity: 0.5;
                     border: 1px solid $secondary-clr;
                     padding: 0.5rem;
                 }
@@ -118,7 +116,7 @@
 
     h3 {
         text-align: center;
-        font-size: clamp(2rem, 3vw, 3vw);
+        font-size: clamp(1.5rem, 3.5vw, 4vw);
         margin: 10rem 0rem;
     }
 }

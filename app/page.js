@@ -35,7 +35,7 @@ export default function Home() {
                 <div className="hero-container">
                     <p>Un jeu de tir tactique avec personnages en 5c5</p>
                     <span className={myFont.className} id='valorant'>vAlorant</span>
-                    <a href="https://playvalorant.com/fr-fr/" className='btn-link'>Je découvre</a>
+                    <a href="https://playvalorant.com/fr-fr/" target='blank' className='btn-link'>Je découvre</a>
                 </div>
                 <Image 
                     src="/images/valorant-hero.webp"

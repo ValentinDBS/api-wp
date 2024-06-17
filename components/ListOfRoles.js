@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 
 const ListOfRoles = ({ onRoleSelect }) => {
     const [roles, setRoles] = useState([]);
+    const [isActive, setIsActive] = useState(false);
+
 
     useEffect(() => {
         async function fetchRoles() {
@@ -29,17 +31,33 @@ const ListOfRoles = ({ onRoleSelect }) => {
         fetchRoles();
     }, []);
 
+    const handleClick = () => {
+        setIsActive(!isActive);
+    }
+
+    const handleRoleSelect = (role) => {
+        onRoleSelect(role);
+        setIsActive(false); // Ferme le menuToggle après avoir sélectionné un rôle
+    }
+
     return (
-        <ul>
-            <li>
-                <a href="#agents" onClick={() => onRoleSelect('')}>All</a>
-            </li>
-            {roles.map((role) => (
-                <li key={role}>
-                    <a href="#agents" onClick={() => onRoleSelect(role)}>{role}</a>
+        <div className={`list-role-container ${isActive ? "active" : ""}`}>
+            <div className='menuToggle' onClick={handleClick}>
+                <p>Rôle</p>
+            </div>
+            <ul>
+                <li>
+                    <a href="#agents" onClick={() => handleRoleSelect('')}>Tous</a>
                 </li>
-            ))}
-        </ul>
+                {roles.map((role) => (
+                    <li key={role}>
+                        <a href="#agents" onClick={() => handleRoleSelect(role)}>{role}</a>
+                    </li>
+                ))}
+            </ul>
+            
+        </div>
+        
     );
 }
 

@@ -48,7 +48,7 @@ const Searchbar = () => {
         <div className='result-search'>
           {activeSearch.map(agent => (
             <span key={agent.uuid}>
-              <a href={`${agent.uuid}`}>{agent.displayName}</a>
+              <a href={`/${agent.uuid}`}>{agent.displayName}</a>
             </span>
           ))}
         </div>

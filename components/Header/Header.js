@@ -44,7 +44,7 @@ function Header() {
         </div>
         <AnimatePresence mode="wait">
 
-          {isActive && <Nav />}
+          {isActive && <Nav setIsActive={setIsActive}/>}
 
         </AnimatePresence>
     </div>

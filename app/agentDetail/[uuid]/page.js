@@ -84,7 +84,7 @@ const Page = () => {
                     key={key} 
                     onClick={() => handleCompetenceClick(agent.competences[key].nom)}
                     initial={{ opacity: 1 }}
-                    animate={{ opacity: selectedCompetence === agent.competences[key].nom ? 1 : 0.5 }}
+                    animate={{ opacity: selectedCompetence === agent.competences[key].nom ? 1 : 0.3 }}
                     transition={{ duration: 0.5 }}
                   >
                     <Image 
@@ -126,7 +126,7 @@ const Page = () => {
         ))}
       </section>
       <section id='more'>
-        <h3>Envie d'en apprendre d'avantage ?</h3>
+        <h3>Envie d'en apprendre davantage ?</h3>
         <div className='filter-agent'>
             <div className="filter-container">
                 <p>Sélectionne un agent</p>
