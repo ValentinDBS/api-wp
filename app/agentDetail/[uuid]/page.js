@@ -8,6 +8,7 @@ import Agent from '@/components/Agent';
 import ListOfRoles from '@/components/ListOfRoles';
 import { animateAccueil } from '@/app/utilities/animation';
 
+
 const Page = () => {
   const [agents, setAgents] = useState([]);
   const [displayedAgents, setDisplayedAgents] = useState([]);

@@ -82,3 +82,18 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+// Error 404
+
+#not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  
+  h1 {
+    font-size: clamp(2rem, 2vw, 2vw);
+  }
+}
