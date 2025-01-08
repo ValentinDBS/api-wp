@@ -5,21 +5,25 @@ export default function Curve() {
   const [windowHeight, setWindowHeight] = useState(0);
 
   useEffect(() => {
-    // Set window height on component mount
-    setWindowHeight(window.innerHeight);
+    // Check if window is defined (i.e., running in the browser)
+    if (typeof window !== "undefined") {
+      // Set window height on component mount
+      setWindowHeight(window.innerHeight);
 
-    // Optional: Update height on window resize
-    const handleResize = () => setWindowHeight(window.innerHeight);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+      // Optional: Update height on window resize
+      const handleResize = () => setWindowHeight(window.innerHeight);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
-  const initialPath = `M100 0 L100 ${windowHeight} Q-100 ${
-    windowHeight / 2
-  } 100 0`;
-  const targetPath = `M100 0 L100 ${windowHeight} Q100 ${
-    windowHeight / 2
-  } 100 0`;
+  // Only calculate paths if windowHeight is set
+  const initialPath = windowHeight
+    ? `M100 0 L100 ${windowHeight} Q-100 ${windowHeight / 2} 100 0`
+    : "";
+  const targetPath = windowHeight
+    ? `M100 0 L100 ${windowHeight} Q100 ${windowHeight / 2} 100 0`
+    : "";
 
   const curve = {
     initial: {
